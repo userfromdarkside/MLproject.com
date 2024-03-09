@@ -56,27 +56,27 @@ def gradient_descent(x,y,w_in,b_in,cost_function,gradient_function,alpha,num_ite
         if i<83000002:      # prevent resource exhaustion 
             j_history.append( cost_function(x, y, w, b))
         # Print cost every at intervals 10 times or as many iterations if < 10
-        #if i% math.ceil(num_iters / 10000000) == 0:
-            #print(f"Iteration {i:4d}: Cost {j_history[-1]:8.2f}   ")
+        if i% math.ceil(num_iters / 10000000) == 0:
+            print(f"Iteration {i:4d}: Cost {j_history[-1]:8.2f}   ")
         
-    #return w, b, j_history
+    return w, b, j_history
 
 
 initial_w = np.zeros(4)
 initial_b = 0.
-iterations = 10000000
+iterations = 10000
 alpha = 5.0e-7
 w_final, b_final, J_hist = gradient_descent(x_norm, y_train, initial_w, initial_b,
                                                     compute_cost, compute_gradient, 
                                                     alpha, iterations)
 print(f"b,w found by gradient descent: {b_final:0.2f},{w_final} ")
 
-# plot data to find out my model fits the data or not and power up the features x.
+# plot data to find out my model fits the data or not.
 m = x_norm.shape[0]
 predicted = np.zeros(m)
 
 for i in range(m):
-    predicted[i] = w_final*x_norm[i] + b_final
+    predicted[i] = np.dot(w_final,x_norm[i]) + b_final
 
 plt.plot(x_train, predicted, c = "b")
 plt.scatter(x_norm, y_train, marker='x', c='r') 
