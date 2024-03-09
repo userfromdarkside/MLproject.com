@@ -71,18 +71,25 @@ w_final, b_final, J_hist = gradient_descent(x_norm, y_train, initial_w, initial_
                                                     alpha, iterations)
 print(f"b,w found by gradient descent: {b_final:0.2f},{w_final} ")
 
-# plot data to find out my model fits the data or not.
-m = x_norm.shape[0]
-predicted = np.zeros(m)
 
-for i in range(m):
-    predicted[i] = np.dot(w_final,x_norm[i]) + b_final
 
-plt.plot(x_train, predicted, c = "b")
-plt.scatter(x_norm, y_train, marker='x', c='r') 
-plt.title("Profits vs. Population per city")
-plt.ylabel('Profit in $10,000')
-plt.xlabel('Population of City in 10,000s')
+# Plotting the training data points
+plt.scatter(x_train[:, 0], y_train, color='blue', marker='x', label='Training Data')
+
+# Plotting the linear regression model
+x_range = np.linspace(np.min(x_train[:, 0]), np.max(x_train[:, 0]), 100)
+y_pred = w_final[0] * ((x_range - mu[0]) / sigma[0]) + b_final
+plt.plot(x_range, y_pred, color='red', label='Linear Regression Model')
+
+# Adding labels and legend
+plt.xlabel('Feature 1 (Size)')
+plt.ylabel('Price')
+plt.legend()
+
+# Display the plot
+plt.show()
+
+
 
 
 
