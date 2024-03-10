@@ -1,1 +1,1 @@
-# FirstClassificationProject.com
+# suppervised machine learning projects
