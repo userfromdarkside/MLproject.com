@@ -30,3 +30,21 @@ def compute_cost(x,y,w,b,*argv):
         loss_sum+=-(y[i]*np.log(f_wb))-(1-y[i])*np.log(1-f_wb)
         total_cost = loss_sum / m
         return total_cost
+def compute_gradient(x,y,w,b,*argv):
+    m,n = x.shape
+    dj_dw = np.zeros(w.shape)
+    dj_db = 0.
+    for i in range(m):
+        z_wb = 0
+        for j in range(n):
+            z_wb+= x[i,j]*w[j]
+        z_wb +=b
+        f_wb = sigmoid_function(z_wb)
+        
+        dj_db_i = f_wb - y[i]
+        dj_db+=dj_db_i
+        for j in range(n):
+            dj_dw[j] += (f_wb-y[i])*(x[i,j])
+    dj_dw = dj_dw/m
+    dj_db = dj_db/m
+    return dj_dw, dj_db
