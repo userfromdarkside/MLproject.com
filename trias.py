@@ -64,7 +64,7 @@ def gradient_descent(x,y,w_in,b_in,cost_function,gradient_function,alpha,num_ite
 
 initial_w = np.zeros(4)
 initial_b = 0.
-iterations = 1000
+iterations = 1000 # should be 10,000,000 and we will get cost = 0.
 alpha = 5.0e-7
 w_final, b_final, J_hist = gradient_descent(x_norm, y_train, initial_w, initial_b,
                                                     compute_cost, compute_gradient, 
@@ -88,6 +88,10 @@ plt.legend()
 
 # Display the plot
 plt.show()
+ 
+# I can power up the feature X by using the sample in feature engineering file.
+
+
 
 
 
