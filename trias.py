@@ -89,8 +89,7 @@ plt.legend()
 # Display the plot
 plt.show()
  
-# I can power up the feature X by using the sample in feature engineering file.
-
+# I can power up the feature X by using the sample in feature engineering filej
 
 
 
