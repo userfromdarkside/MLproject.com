@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import numpy as np
 import matplotlib.pyplot as plt
 from utils import *
@@ -110,3 +111,5 @@ plt.xlabel('Feature 1')
 plt.ylabel('Feature 2')
 plt.legend()
 plt.show()
+=======
+>>>>>>> parent of c6fc640 (update for fun)
